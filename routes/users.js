@@ -12,7 +12,9 @@ router.post('/', async (req, res) => {
     try {
         const newUser = new User({ username, email, password, firstName, lastName});
         await newUser.save();
-        res.status(201).send({ id: newUser._id, username: newUser.username, firstName: newUser.firstName, lastName: newUser.lastName, email: newUser.email, createdAt: newUser.createdAt });
+        res.status(201).send({ id: newUser._id, username: newUser.username, firstName: 
+            newUser.firstName, lastName: newUser.lastName, 
+            email: newUser.email, createdAt: newUser.createdAt });
     } catch (error) {
         res.status(400).send(error);
     }
@@ -21,5 +23,7 @@ router.post('/', async (req, res) => {
 export default router;
 
 /*
-curl -X POST -H "Content-Type: application/json" -d '{"username": "johndoe", "firstName": "grisecon", "email": "john@example.com", "password": "securepassword123"}' http://localhost:3003/users
+curl -X POST -H "Content-Type: application/json" -d '{"username": "johndoe", 
+"firstName": "grisecon", "email": "john@example.com", "password": "securepassword123"}' 
+http://localhost:3003/users
 */
